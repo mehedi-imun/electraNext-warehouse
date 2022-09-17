@@ -17,7 +17,7 @@ const MyItems = () => {
 
             const token = localStorage.getItem('accessToken')
             const email = user.email;
-            const url =  `https://secure-sands-19636.herokuapp.com/myitems?email=${email}`;
+            const url = `https://electra-next-warehouse-server-mahedi-imun.vercel.app/myitems?email=${email}`;
             try {
                 const { data } = await axios.get(url, {
                     headers: {
@@ -65,7 +65,7 @@ const MyItems = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                const url = `https://secure-sands-19636.herokuapp.com/product/${id}`;
+                const url = `https://electra-next-warehouse-server-mahedi-imun.vercel.app/product/${id}`;
                 fetch(url, {
                     method: 'DELETE'
                 })

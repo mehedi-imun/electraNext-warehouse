@@ -11,7 +11,7 @@ const Inventory = () => {
     const [items, setItem] = useState({})
     const { img, description, price, quantity, supplier, name } = items;
     useEffect(() => {
-        const url = `https://secure-sands-19636.herokuapp.com/product/${id}`
+        const url = `https://electra-next-warehouse-server-mahedi-imun.vercel.app/product/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data))
@@ -20,7 +20,7 @@ const Inventory = () => {
     // increase quantity when click delivered btn
     const handleDelivered = (updatedQuantity) => {
         const newQuantity = updatedQuantity - 1
-        const url = `https://secure-sands-19636.herokuapp.com/product/${id}`
+        const url = `https://electra-next-warehouse-server-mahedi-imun.vercel.app/product/${id}`
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -31,7 +31,7 @@ const Inventory = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    fetch(`https://secure-sands-19636.herokuapp.com/product/${id}`)
+                    fetch(`https://electra-next-warehouse-server-mahedi-imun.vercel.app/product/${id}`)
                         .then(res => res.json())
                         .then(data => setItem(data))
                     toast.success('delivered successfully!', {
@@ -60,7 +60,7 @@ const Inventory = () => {
             denyButtonText: `Don't Add`,
         }).then((result) => {
             if (result.isConfirmed) {
-                const url = `https://secure-sands-19636.herokuapp.com/product/${id}`
+                const url = `https://electra-next-warehouse-server-mahedi-imun.vercel.app/product/${id}`
                 fetch(url, {
                     method: 'PUT',
                     headers: {
@@ -71,7 +71,7 @@ const Inventory = () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.modifiedCount > 0) {
-                            fetch(`https://secure-sands-19636.herokuapp.com/product/${id}`)
+                            fetch(`https://electra-next-warehouse-server-mahedi-imun.vercel.app/product/${id}`)
                                 .then(res => res.json())
                                 .then(data => setItem(data))
                         }

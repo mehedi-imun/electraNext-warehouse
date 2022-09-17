@@ -8,7 +8,7 @@ const useToken = (user) => {
     useEffect(() => {
         const getToken = async () => {
             if (email) {
-                const { data } = await axios.post('https://secure-sands-19636.herokuapp.com/gettoken', { email });
+                const { data } = await axios.post('https://electra-next-warehouse-server-mahedi-imun.vercel.app/gettoken', { email });
                 setToken(data)
                 localStorage.setItem('accessToken', data)
             }

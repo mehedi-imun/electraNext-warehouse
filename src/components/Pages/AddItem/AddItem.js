@@ -6,29 +6,29 @@ import auth from '../../../Firebase.init';
 import PageTitle from '../../Shared/PageTittle/PageTitle';
 const AddItem = () => {
     const [user, error] = useAuthState(auth);
-    const { register, handleSubmit,reset } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = async (data) => {
-        fetch('https://secure-sands-19636.herokuapp.com/product',{
-            method:'POST',
+        fetch('https://electra-next-warehouse-server-mahedi-imun.vercel.app/product', {
+            method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(data =>{
-            if(data.acknowledged === true ){
-                Swal.fire(
-                    'successfully added product!',
-                    'please check your item page',
-                    'success'
-                  )
-                  // on submit reset input
-                  reset()
-            }
-        })
-        
-        
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged === true) {
+                    Swal.fire(
+                        'successfully added product!',
+                        'please check your item page',
+                        'success'
+                    )
+                    // on submit reset input
+                    reset()
+                }
+            })
+
+
     };
 
     return (

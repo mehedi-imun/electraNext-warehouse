@@ -12,7 +12,7 @@ const ManageInventories = () => {
 
     // product count 
     useEffect(() => {
-        fetch('https://secure-sands-19636.herokuapp.com/productcount')
+        fetch('https://electra-next-warehouse-server-mahedi-imun.vercel.app/productcount')
             .then(res => res.json())
             .then(data => {
                 const count = data.count;
@@ -22,7 +22,7 @@ const ManageInventories = () => {
     }, []);
     // fetch api with query and get page wise product
     useEffect(() => {
-        fetch(`https://secure-sands-19636.herokuapp.com/allproduct?page=${page}`)
+        fetch(`https://electra-next-warehouse-server-mahedi-imun.vercel.app/allproduct?page=${page}`)
             .then(res => res.json())
             .then(data => setItems(data))
     }, [page])
@@ -38,7 +38,7 @@ const ManageInventories = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                const url = `https://secure-sands-19636.herokuapp.com/product/${id}`;
+                const url = `https://electra-next-warehouse-server-mahedi-imun.vercel.app/product/${id}`;
                 fetch(url, {
                     method: 'DELETE'
                 })
@@ -95,7 +95,7 @@ const ManageInventories = () => {
                                 margin: '5px'
                             }}
                             className={page === number ? ' bg-dark ' : ""}>
-                            {number+1}
+                            {number + 1}
                         </button>)
                 }
             </div>
